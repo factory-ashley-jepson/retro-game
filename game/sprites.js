@@ -12,7 +12,7 @@
 //   ],
 
 const PALETTE = {
-  K: "#101018", // black
+  K: "#121815", // black
   W: "#f4f1e8", // white
   A: "#8a8d9c", // gray
   a: "#43465a", // dark gray

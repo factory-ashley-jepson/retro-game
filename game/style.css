@@ -1,14 +1,19 @@
 /* The retro computer around the game. Everything is sized in --u so the
-   whole machine scales to fit the window. */
+   whole scene scales to fit the window. */
 
 :root {
-  --u: min(0.94vw, 0.86vh);
-  --plastic: #e3d7bd;
-  --plastic-light: #f3ebd8;
-  --plastic-dark: #c8b996;
-  --plastic-deep: #a39272;
-  --ink: #5c4f3c;
-  --accent: #ff5a00;
+  --u: min(0.9vw, 0.74vh);
+  --plastic-light: #f8ece2;
+  --plastic: #f0dccf;
+  --plastic-dark: #e0c5b5;
+  --plastic-deep: #c6a593;
+  --recess: #dcc0ae;
+  --ink: #7a6352;
+  --green: #45c552;
+  --green-dark: #25883a;
+  --wall: #de9e99;
+  --wood: #7b4329;
+  --wood-dark: #5a2d1a;
 }
 
 * {
@@ -26,7 +31,7 @@ body {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 15%, #2e2724 0%, #151110 55%, #080606 100%);
+  background: radial-gradient(ellipse at 50% 30%, #e9b0aa 0%, var(--wall) 45%, #c98782 100%);
   font-family: "Courier New", ui-monospace, monospace;
   touch-action: none;
   user-select: none;
@@ -35,74 +40,118 @@ body {
 }
 
 .computer {
+  position: relative;
+  z-index: 0;
   width: calc(100 * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Monitor ---------------------------------------------------------------- */
+/* The computer: monitor on top of a base unit ---------------------------- */
+
+.unit {
+  position: relative;
+  width: calc(86 * var(--u));
+  padding-left: calc(12 * var(--u));
+}
+
+/* The desk: a wood surface that starts behind the base and runs to the
+   bottom of the window. */
+.unit::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: calc(100% - 5 * var(--u));
+  left: -100vw;
+  right: -100vw;
+  height: 200vh;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) calc(1.5 * var(--u))),
+    repeating-linear-gradient(176deg, rgba(0, 0, 0, 0) 0 calc(1.6 * var(--u)), rgba(0, 0, 0, 0.07) calc(1.6 * var(--u)) calc(2 * var(--u))),
+    linear-gradient(to bottom, var(--wood) 0%, var(--wood-dark) 60%);
+  box-shadow: inset 0 calc(0.4 * var(--u)) 0 rgba(255, 220, 190, 0.25);
+}
 
 .monitor {
-  padding: calc(3.5 * var(--u)) calc(3.5 * var(--u)) 0;
-  border-radius: calc(3.5 * var(--u)) calc(3.5 * var(--u)) calc(2.5 * var(--u)) calc(2.5 * var(--u));
-  background: linear-gradient(160deg, var(--plastic-light) 0%, var(--plastic) 45%, var(--plastic-dark) 100%);
-  box-shadow:
-    inset calc(0.4 * var(--u)) calc(0.4 * var(--u)) 0 rgba(255, 255, 255, 0.6),
-    inset calc(-0.5 * var(--u)) calc(-0.6 * var(--u)) 0 rgba(0, 0, 0, 0.12),
-    0 calc(1.2 * var(--u)) 0 var(--plastic-deep),
-    0 calc(2.5 * var(--u)) calc(4 * var(--u)) rgba(0, 0, 0, 0.55);
+  position: relative;
+}
+
+/* The sloped back of the monitor, seen from the left. */
+.back {
+  position: absolute;
+  left: calc(-12 * var(--u));
+  top: calc(10 * var(--u));
+  bottom: calc(1 * var(--u));
+  width: calc(13 * var(--u));
+  clip-path: polygon(55% 0, 100% 0, 100% 100%, 0 100%, 0 30%);
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0) 30%),
+    linear-gradient(90deg, var(--plastic-deep) 0%, var(--plastic-dark) 45%, var(--plastic) 90%, var(--plastic-dark) 100%);
 }
 
 .front {
-  display: flex;
-  align-items: center;
-  gap: calc(3 * var(--u));
+  position: relative;
+  padding: calc(6 * var(--u)) calc(6 * var(--u)) calc(2.6 * var(--u));
+  border-radius: calc(2.4 * var(--u));
+  background: linear-gradient(165deg, var(--plastic-light) 0%, var(--plastic) 55%, var(--plastic-dark) 100%);
+  box-shadow:
+    inset calc(0.4 * var(--u)) calc(0.4 * var(--u)) 0 rgba(255, 255, 255, 0.7),
+    inset calc(-0.5 * var(--u)) calc(-0.6 * var(--u)) 0 rgba(0, 0, 0, 0.08),
+    0 calc(0.8 * var(--u)) 0 var(--plastic-deep);
+}
+
+/* The deep, rounded ring between the plastic and the glass. */
+.bezel {
+  padding: calc(2 * var(--u));
+  border-radius: calc(4.6 * var(--u));
+  background: linear-gradient(160deg, var(--plastic-dark) 0%, var(--recess) 50%, var(--plastic-light) 100%);
+  box-shadow:
+    inset calc(0.6 * var(--u)) calc(0.8 * var(--u)) calc(1 * var(--u)) rgba(0, 0, 0, 0.18),
+    0 0 0 calc(0.3 * var(--u)) rgba(255, 255, 255, 0.5);
 }
 
 .screen {
   position: relative;
-  flex: none;
-  width: calc(74 * var(--u));
   aspect-ratio: 4 / 3;
-  padding: calc(2.2 * var(--u));
-  border-radius: calc(3 * var(--u));
-  background: #0b0a0f;
-  border: calc(1 * var(--u)) solid #b6a684;
-  box-shadow:
-    inset 0 0 calc(2 * var(--u)) rgba(0, 0, 0, 0.9),
-    0 0 0 calc(0.35 * var(--u)) rgba(255, 255, 255, 0.45);
+  border-radius: calc(3.4 * var(--u)) / calc(4 * var(--u));
+  overflow: hidden;
+  background: #151b18;
+  box-shadow: 0 0 0 calc(0.5 * var(--u)) #2a2722;
 }
 
 #game {
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: calc(1.8 * var(--u)) / calc(2.4 * var(--u));
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  filter: saturate(1.08) contrast(1.04);
+  filter: saturate(1.1) contrast(1.05);
   cursor: pointer;
 }
 
 .scanlines,
 .glass {
   position: absolute;
-  inset: calc(2.2 * var(--u));
-  border-radius: calc(1.8 * var(--u)) / calc(2.4 * var(--u));
+  inset: 0;
   pointer-events: none;
 }
 
-/* One dark line per game pixel row. */
+/* Thick phosphor lines, one for every two game pixel rows. */
 .scanlines {
-  background: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.1) 55%);
-  background-size: 100% calc(100% / 192);
+  background: linear-gradient(to bottom, rgba(150, 190, 165, 0.07) 50%, rgba(0, 0, 0, 0.3) 50%);
+  background-size: 100% calc(100% / 96);
 }
 
 .glass {
   background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 32%),
-    radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.4) 100%);
+    radial-gradient(ellipse 9% 3.2% at 72% 7%, rgba(255, 255, 255, 0.8) 0 40%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(ellipse 22% 12% at 74% 8%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.45) 100%);
   box-shadow:
-    inset 0 0 calc(2.5 * var(--u)) rgba(0, 0, 0, 0.55),
-    0 0 calc(2 * var(--u)) rgba(150, 210, 255, 0.12);
+    inset 0 0 calc(3 * var(--u)) rgba(0, 0, 0, 0.6),
+    inset 0 0 calc(6 * var(--u)) rgba(90, 255, 130, 0.06);
   animation: flicker 6s infinite steps(1);
 }
 
@@ -112,140 +161,162 @@ body {
     opacity: 1;
   }
   47% {
-    opacity: 0.85;
+    opacity: 0.86;
   }
   48% {
     opacity: 1;
   }
 }
 
-.side {
-  flex: 1;
+/* Two floppy drives and a square button under the screen. */
+.drives {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: calc(5 * var(--u));
+  gap: calc(1.6 * var(--u));
+  margin-top: calc(2.6 * var(--u));
+  padding: 0 calc(1 * var(--u));
 }
 
-.grille {
-  width: 100%;
-}
-
-.grille i {
-  display: block;
-  height: calc(0.9 * var(--u));
-  margin: calc(1.2 * var(--u)) 0;
-  border-radius: var(--u);
-  background: #8e7f63;
-  box-shadow: inset 0 calc(0.3 * var(--u)) calc(0.3 * var(--u)) rgba(0, 0, 0, 0.5), 0 calc(0.2 * var(--u)) 0 rgba(255, 255, 255, 0.5);
-}
-
-.knobs {
-  display: flex;
-  gap: calc(2 * var(--u));
-}
-
-.knob {
-  width: calc(4.4 * var(--u));
+.drive {
+  position: relative;
+  width: calc(17 * var(--u));
   height: calc(4.4 * var(--u));
-  border-radius: 50%;
-  background:
-    repeating-conic-gradient(rgba(0, 0, 0, 0.12) 0 6deg, transparent 6deg 18deg),
-    radial-gradient(circle at 35% 30%, var(--plastic-light), var(--plastic-dark) 70%);
-  box-shadow: 0 calc(0.4 * var(--u)) calc(0.6 * var(--u)) rgba(0, 0, 0, 0.35);
+  border-radius: calc(0.6 * var(--u));
+  background: var(--recess);
+  box-shadow:
+    inset 0 calc(0.4 * var(--u)) calc(0.5 * var(--u)) rgba(0, 0, 0, 0.18),
+    0 calc(0.2 * var(--u)) 0 rgba(255, 255, 255, 0.7);
 }
 
-.chin {
-  height: calc(9.5 * var(--u));
+.drive .slot {
+  position: absolute;
+  left: calc(1.4 * var(--u));
+  right: calc(5 * var(--u));
+  top: calc(1.5 * var(--u));
+  height: calc(1.1 * var(--u));
+  border-radius: calc(0.3 * var(--u));
+  background: #4a3a30;
+  box-shadow: 0 calc(0.4 * var(--u)) 0 var(--plastic-light);
+}
+
+.tab {
+  position: absolute;
+  right: calc(1.2 * var(--u));
+  top: 50%;
+  width: calc(2.6 * var(--u));
+  height: calc(3 * var(--u));
+  transform: translateY(-50%);
+  border-radius: calc(0.5 * var(--u));
+  background: linear-gradient(to bottom, #7fe384 0%, var(--green) 45%, var(--green-dark) 100%);
+  box-shadow: 0 calc(0.3 * var(--u)) calc(0.4 * var(--u)) rgba(0, 0, 0, 0.3);
+}
+
+.square {
+  margin-left: auto;
+  width: calc(6.5 * var(--u));
+  height: calc(4.4 * var(--u));
+  border-radius: calc(0.6 * var(--u));
+  background: var(--recess);
+  box-shadow: inset 0 calc(0.3 * var(--u)) calc(0.4 * var(--u)) rgba(0, 0, 0, 0.18);
+  display: grid;
+  place-items: center;
+}
+
+.square span {
+  width: calc(3.6 * var(--u));
+  height: calc(2.8 * var(--u));
+  border-radius: calc(0.4 * var(--u));
+  background: linear-gradient(to bottom, var(--plastic-light), var(--plastic-dark));
+  box-shadow: 0 calc(0.3 * var(--u)) 0 var(--plastic-deep);
+}
+
+/* The base unit the monitor sits on. */
+.base {
+  position: relative;
+  margin-left: calc(-12 * var(--u));
+  margin-top: calc(1.2 * var(--u));
+  height: calc(12 * var(--u));
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 calc(0.8 * var(--u));
+  padding: 0 calc(4 * var(--u)) 0 calc(18 * var(--u));
+  border-radius: calc(1.6 * var(--u));
+  background: linear-gradient(175deg, var(--plastic-light) 0%, var(--plastic) 50%, var(--plastic-dark) 100%);
+  box-shadow:
+    inset 0 calc(0.4 * var(--u)) 0 rgba(255, 255, 255, 0.7),
+    0 calc(0.8 * var(--u)) 0 var(--plastic-deep),
+    0 calc(2 * var(--u)) calc(3 * var(--u)) rgba(60, 20, 10, 0.45);
+}
+
+.bay {
+  position: relative;
+  width: calc(32 * var(--u));
+  height: calc(7.4 * var(--u));
+  border-radius: calc(0.8 * var(--u));
+  background: var(--recess);
+  box-shadow:
+    inset 0 calc(0.4 * var(--u)) calc(0.6 * var(--u)) rgba(0, 0, 0, 0.2),
+    0 calc(0.25 * var(--u)) 0 rgba(255, 255, 255, 0.7);
+}
+
+.bay .slot {
+  position: absolute;
+  left: calc(2 * var(--u));
+  right: calc(6 * var(--u));
+  top: calc(2.2 * var(--u));
+  height: calc(1.3 * var(--u));
+  border-radius: calc(0.3 * var(--u));
+  background: #4a3a30;
+  box-shadow: 0 calc(0.5 * var(--u)) 0 var(--plastic-light);
+}
+
+.bay .light {
+  position: absolute;
+  left: calc(2 * var(--u));
+  bottom: calc(1.4 * var(--u));
+  width: calc(2 * var(--u));
+  height: calc(0.6 * var(--u));
+  border-radius: calc(0.3 * var(--u));
+  background: #4a3a30;
+}
+
+.bay .tab {
+  width: calc(3.4 * var(--u));
+  height: calc(2.6 * var(--u));
+  top: auto;
+  bottom: calc(1 * var(--u));
+  transform: none;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: calc(1.2 * var(--u));
-  font: italic 700 calc(2.6 * var(--u)) / 1 Futura, "Avenir Next", "Trebuchet MS", sans-serif;
-  color: #6e5d45;
-  text-shadow: 0 calc(0.15 * var(--u)) 0 rgba(255, 255, 255, 0.6);
-}
-
-.stripes {
-  width: calc(3.2 * var(--u));
-  height: calc(2.6 * var(--u));
-  border-radius: calc(0.4 * var(--u));
-  background: linear-gradient(
-    to bottom,
-    #ffc46b 0 25%,
-    #ff9a3c 25% 50%,
-    var(--accent) 50% 75%,
-    #b83e00 75% 100%
-  );
-}
-
-.floppy {
-  position: relative;
-  width: calc(26 * var(--u));
-  height: calc(3.8 * var(--u));
-  border-radius: calc(0.6 * var(--u));
-  background: var(--plastic-dark);
-  box-shadow: inset 0 calc(0.3 * var(--u)) calc(0.5 * var(--u)) rgba(0, 0, 0, 0.3), 0 calc(0.2 * var(--u)) 0 rgba(255, 255, 255, 0.6);
-}
-
-.floppy .slot {
-  position: absolute;
-  left: calc(2 * var(--u));
-  right: calc(5 * var(--u));
-  top: 50%;
-  height: calc(0.8 * var(--u));
-  transform: translateY(-50%);
-  border-radius: calc(0.4 * var(--u));
-  background: #2a2219;
-}
-
-.floppy .eject {
-  position: absolute;
-  right: calc(1.4 * var(--u));
-  top: 50%;
-  width: calc(2.2 * var(--u));
-  height: calc(1.4 * var(--u));
-  transform: translateY(-50%);
-  border-radius: calc(0.3 * var(--u));
-  background: var(--plastic);
-  box-shadow: 0 calc(0.2 * var(--u)) 0 var(--plastic-deep);
-}
-
-.power {
-  display: flex;
-  align-items: center;
-  gap: calc(1 * var(--u));
-  font-size: calc(1.5 * var(--u));
-  font-weight: 700;
-  letter-spacing: calc(0.2 * var(--u));
-  color: #7a6a50;
+  gap: calc(1.4 * var(--u));
+  font: italic 700 calc(2.4 * var(--u)) / 1 Futura, "Avenir Next", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  text-shadow: 0 calc(0.15 * var(--u)) 0 rgba(255, 255, 255, 0.7);
 }
 
 .led {
-  width: calc(1.4 * var(--u));
-  height: calc(1.4 * var(--u));
+  width: calc(1.3 * var(--u));
+  height: calc(1.3 * var(--u));
   border-radius: 50%;
-  background: #6dff7a;
+  background: #7dff8a;
   box-shadow: 0 0 calc(1.2 * var(--u)) #3dff55, inset 0 0 calc(0.3 * var(--u)) #fff;
 }
 
-/* Keyboard --------------------------------------------------------------- */
+/* Keyboard, on the desk in front of the computer -------------------------- */
 
 .keyboard {
-  margin-top: calc(2.6 * var(--u));
+  margin-top: calc(4 * var(--u));
+  width: 100%;
   padding: calc(2 * var(--u)) calc(2.6 * var(--u)) calc(2.6 * var(--u));
-  border-radius: calc(2.4 * var(--u));
+  border-radius: calc(2 * var(--u));
   background: linear-gradient(175deg, var(--plastic-light) 0%, var(--plastic) 40%, var(--plastic-dark) 100%);
   box-shadow:
-    inset 0 calc(0.4 * var(--u)) 0 rgba(255, 255, 255, 0.6),
-    0 calc(1.2 * var(--u)) 0 var(--plastic-deep),
-    0 calc(2.2 * var(--u)) calc(3 * var(--u)) rgba(0, 0, 0, 0.5);
+    inset 0 calc(0.4 * var(--u)) 0 rgba(255, 255, 255, 0.7),
+    0 calc(1 * var(--u)) 0 var(--plastic-deep),
+    0 calc(2.2 * var(--u)) calc(3 * var(--u)) rgba(40, 10, 0, 0.5);
 }
 
 .legend {
@@ -253,7 +324,7 @@ body {
   font-size: calc(1.4 * var(--u));
   font-weight: 700;
   letter-spacing: calc(0.25 * var(--u));
-  color: #7a6a50;
+  color: var(--ink);
 }
 
 .keys {
@@ -290,10 +361,10 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: calc(0.7 * var(--u));
-  background: linear-gradient(to bottom, #f6efdf, #d8cbae);
+  background: linear-gradient(to bottom, #f8efe5, #e2cfbd);
   box-shadow:
     0 calc(0.6 * var(--u)) 0 var(--plastic-deep),
-    0 calc(0.9 * var(--u)) calc(0.6 * var(--u)) rgba(0, 0, 0, 0.35);
+    0 calc(0.9 * var(--u)) calc(0.6 * var(--u)) rgba(0, 0, 0, 0.3);
   font-size: calc(1.7 * var(--u));
   font-weight: 700;
   color: var(--ink);
@@ -305,9 +376,9 @@ body {
 
 .keys span.down {
   transform: translateY(calc(0.5 * var(--u)));
-  background: linear-gradient(to bottom, #e9dfc9, #cdbf9f);
+  background: linear-gradient(to bottom, #ede0d2, #d6c1ad);
   box-shadow: 0 calc(0.1 * var(--u)) 0 var(--plastic-deep);
-  color: var(--accent);
+  color: var(--green-dark);
 }
 
 .keys .space {
@@ -330,14 +401,19 @@ body {
 /* Phones held upright: bigger screen, just the keys you need. */
 @media (max-aspect-ratio: 4/5) {
   :root {
-    --u: min(0.96vw, 0.8vh);
+    --u: min(0.96vw, 0.7vh);
   }
-  .side,
+  .unit {
+    width: 100%;
+    padding-left: 0;
+  }
+  .back,
   .letters {
     display: none;
   }
-  .screen {
-    width: 100%;
+  .base {
+    margin-left: 0;
+    padding-left: calc(4 * var(--u));
   }
   .keys span {
     height: calc(11 * var(--u));
@@ -356,17 +432,15 @@ body {
   .legend {
     font-size: calc(2.2 * var(--u));
   }
-  .floppy {
-    width: calc(22 * var(--u));
-  }
 }
 
-/* Phones held sideways: hide the keyboard so the screen fits. */
+/* Phones held sideways: hide the keyboard and base so the screen fits. */
 @media (max-height: 500px) and (min-aspect-ratio: 4/3) {
   :root {
-    --u: min(0.94vw, 1.3vh);
+    --u: min(0.94vw, 1.4vh);
   }
-  .keyboard {
+  .keyboard,
+  .base {
     display: none;
   }
 }
