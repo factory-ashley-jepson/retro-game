@@ -5,7 +5,7 @@ Goal: everyone leaves with a game they invented, tested, and packed into a file 
 ## Before doors open
 
 - Setup page and QR code on the screen: `docs/qr.png`, which points to https://factory-ashley-jepson.github.io/morning-brief/
-- Tonight's promo code on the screen and in `docs/index.html` (`CONFIG.promoCode`).
+- The voucher form is live (the **Get my credits** button on the setup page). Watch the voucher sheet's Status column as people claim.
 - One helper for every 10 to 12 attendees, each with `helper-card.md`.
 - A finished game ready to demo, plus the empty computer open in a second tab.
 - Test the Wi-Fi with a large download. The app installer is the biggest file anyone will pull.
@@ -18,7 +18,7 @@ Show the empty computer: "This is where everyone starts. The computer is on, but
 
 ## 0:03 to 0:07 · Setup
 
-Put the setup page on the screen. Walk through the three setup steps: download the app, add credits, then paste the install prompt. When it's done, everyone sees their own empty computer say `READY.`
+Put the setup page on the screen. Walk through the three setup steps: download the app, claim credits with the form (the voucher email arrives in about a minute), then paste the install prompt. When it's done, everyone sees their own empty computer say `READY.`
 
 Helpers walk the room.
 
@@ -58,4 +58,4 @@ Ask the room: "Hands up when you've sent your game to someone."
 | People stuck choosing an idea | Point to the ideas on the setup page. Star Cat is the safe default. |
 | Build is running long | Ask people to skip the extras. Move straight to `/playtest` with what works. |
 | Running long overall | Skip the test discussion. Have people run `/playtest` and `/ship-game` back to back. |
-| Credits error | Re-show the promo code. Helpers check that it was redeemed in the right account. |
+| Credits error or no voucher email | Check spam first. Then check the voucher sheet for their email: Ashley can copy their claim link from it. |

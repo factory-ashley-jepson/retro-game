@@ -79,8 +79,6 @@
   a.btn.primary, button.btn.primary { color: #000; background: var(--orange); border-color: var(--orange); }
   a.btn:hover, button.btn:hover { border-color: var(--orange); }
 
-  .code-pill[hidden] { display: none; }
-  .code-pill { display: inline-block; margin-top: 10px; padding: 8px 14px; border: 1px dashed var(--orange); border-radius: 8px; font-family: 'Geist Mono', monospace; font-size: 18px; letter-spacing: 0.06em; }
 
   .prompt {
     position: relative; margin-top: 14px;
@@ -152,10 +150,12 @@
       <p class="hint">Not sure which Mac you have? Apple menu, then About This Mac. "Chip: Apple M..." means Apple chip.</p>
     </li>
     <li>
-      <h3>Add tonight's credits</h3>
-      <p id="promo-text">Your code is on the screen up front.</p>
-      <div id="promo-code" class="code-pill" hidden></div>
-      <p class="hint" id="redeem-hint"></p>
+      <h3>Claim tonight's credits</h3>
+      <p>Enter your name and email, and we'll email you a personal link to claim your credits. It arrives in about a minute.</p>
+      <div class="buttons">
+        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdcw4dzM5eBTizZDiO0_YMQGqaliev-sMMipXG_DQlS3eOqAQ/viewform" target="_blank" rel="noopener">Get my credits</a>
+      </div>
+      <p class="hint">Open the email, select <strong>Claim your credits</strong>, and sign in to the Factory app with the same account. No email after 2 minutes? Check spam, then ask a host.</p>
     </li>
     <li>
       <h3>Install the workshop kit</h3>
@@ -214,19 +214,6 @@
 </main>
 
 <script>
-  // Fill these in before the event. Empty values fall back to "the code is on the screen".
-  const CONFIG = {
-    promoCode: "",
-    redeemHint: "",
-  };
-
-  if (CONFIG.promoCode) {
-    document.getElementById('promo-text').textContent = 'Redeem this code in the Factory app:';
-    const pill = document.getElementById('promo-code');
-    pill.textContent = CONFIG.promoCode;
-    pill.hidden = false;
-  }
-  if (CONFIG.redeemHint) document.getElementById('redeem-hint').textContent = CONFIG.redeemHint;
 
   const btn = document.getElementById('copy-btn');
   btn.addEventListener('click', async () => {
