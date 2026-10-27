@@ -11,20 +11,22 @@ Write a digest the user can read in two minutes: only fresh, verified news about
 
 - Watchlist: `~/.factory/scout/watchlist.md` (Windows: `%USERPROFILE%\.factory\scout\watchlist.md`). If it's missing, offer `/scout-setup`.
 - Seen list: `~/.factory/scout/seen.md`, the links already reported. Create it if it's missing.
-- Window: news published since the last run. With no earlier digest, use the last 2 days for weekday cadence (3 days on Mondays), 4 days for twice a week, and 7 days for weekly.
+- Window: news published since the last run. With no earlier digest, use the last 14 days, so the first digest has enough to show.
+- Open opportunities (grants, fellowships, programs, calls for speakers, awards, jobs, events) also count when they were posted earlier, as long as their deadline or event date is still ahead and they aren't in the seen list.
 - Use the watchlist's time zone for every date.
 
 ## 1. Search each beat
 
-1. Load WebSearch and FetchUrl with ToolSearch (`select:WebSearch,FetchUrl`) if they aren't loaded.
-2. For each beat, run 2 or 3 searches that pair what it watches with its signals, for example `Acme raises`, `Acme launches`, `Acme hires VP`. Add the year or month to keep results fresh. If the beat lists sources to favor, also search those sites.
-3. Collect candidates whose date looks inside the window.
+1. Load WebSearch and FetchUrl with ToolSearch (`select:WebSearch,FetchUrl`) if they aren't loaded. Opening the public pages your searches return is exactly what FetchUrl is for. If FetchUrl isn't available or a page won't load with it, use any other page-reading tool you have.
+2. For each beat, run 2 or 3 searches that pair what it watches with its signals, for example `Acme raises`, `Acme launches`, `Acme hires VP`. Add the year or month to keep results fresh. For opportunity beats, also search for open ones, for example `call for speakers AI 2026 deadline`. If the beat lists sources to favor, also search those sites.
+3. If a beat has no good candidates yet, try 2 more searches with different wording before calling it Quiet.
+4. Collect candidates whose date looks inside the window, or open opportunities whose deadline is ahead.
 
 ## 2. Verify every candidate
 
 Open each candidate with FetchUrl before you use it. Keep it only if:
 
-- The page loads, and its publish date is inside the window. If you can't find a date, drop it.
+- The page loads, and its publish date is inside the window. For an open opportunity, the page shows a deadline or event date that is still ahead. If you can't find the date you need, drop it.
 - The page itself supports what you will say. Never report from a search snippet alone.
 - The source is credible. Prefer primary sources (the company's own announcement, filing, blog, or careers page) and established outlets. Skip content farms, SEO listicles, and reposts when the original exists.
 - Its link is not already in the seen list.

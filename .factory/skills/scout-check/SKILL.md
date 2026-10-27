@@ -13,12 +13,12 @@ Read the newest file in `~/.factory/scout/digests/`, the watchlist at `~/.factor
 
 ## 2. Run every check
 
-Open every source link again with FetchUrl. Judge the digest against what the pages say, not against what seems plausible.
+Open every source link again with FetchUrl, or another page-reading tool if FetchUrl isn't available. Judge the digest against what the pages say, not against what seems plausible.
 
 | # | Check | How to test it |
 | - | ----- | -------------- |
 | 1 | **Shape** | It has Top 3, By beat, Quiet, One thing to do, and a coverage line. The item count fits the watchlist length, with no more than 3 items per beat. |
-| 2 | **Fresh** | Every item's publish date, as shown on its page, is inside the coverage window. |
+| 2 | **Fresh** | Every item's publish date, as shown on its page, is inside the coverage window. An open opportunity (grant, program, call, award, job, event) passes instead if its page shows a deadline or event date that is still ahead. |
 | 3 | **True** | Each page supports the item: the names, numbers, and claims match. Nothing comes from a search snippet alone. |
 | 4 | **Links work** | Every link opens the page it claims to, not a home page, a search page, or an error. |
 | 5 | **Credible** | Each source is a primary source or an established outlet, not a content farm or a repost of an original that exists. |
