@@ -17,9 +17,9 @@ Use the profile's time zone for every date and time.
 
 ## 1. Today's calendar
 
-List every event today from midnight to midnight in the profile time zone. Skip events the user declined and all-day reminders. Show the start time and title. Don't list attendees; the prep note names the people who matter.
+List every event today from midnight to midnight in the profile time zone. Skip events the user declined, all-day reminders, working-location entries (such as "Office" or "Home"), out-of-office blocks, and focus-time holds. Show the start time and title. Don't list attendees; the prep note names the people who matter.
 
-Add a one-line prep note only for meetings that need it: a 1:1, any meeting with someone outside the user's company, or any meeting with a VIP. To write it, search mail from the last 14 days with those attendees and say what is open between them, with a link. Skip prep for large internal recurring meetings.
+Add a one-line prep note only for meetings that need it: a 1:1, any meeting with someone outside the user's company, or any meeting with a VIP. To write it, search mail from the last 14 days with those attendees and say what is open between them, with a link. If you find nothing useful, leave the prep note out; never write "no context found". Skip prep for large internal recurring meetings.
 
 ## 2. Inbox: what needs a reply
 

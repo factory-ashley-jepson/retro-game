@@ -11,6 +11,8 @@ Keep people moving. If a fix takes more than 2 minutes, switch them to sample da
 | Gmail or Google Calendar says "blocked" or "admin approval required" | Company policy on a work account. Use a personal Google account, or sample data. |
 | Outlook asks for admin consent | Same as above: personal account or sample data. |
 | Install prompt fails on download | Ask Droid to retry. If the network blocks it, ask Droid to `git clone https://github.com/factory-ashley-jepson/morning-brief` and copy the same four folders. |
+| Connected Gmail or Calendar, but Droid says it isn't connected | Start a new session. A session only picks up apps connected before it started. |
+| Google sign-in finished, but the app still isn't connected | On Google's consent screen, every permission checkbox must be ticked. Connect again and tick them all. |
 | `/brief-setup` doesn't appear | Start a new session. Or type "set up my morning brief". |
 | Droid keeps asking for permission | That's expected. Tell them to approve each step and read what it's about to do. |
 | Brief is empty or very short | Their inbox may be quiet. Ask Droid to widen the window: "look at the last 7 days". |
