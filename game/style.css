@@ -333,8 +333,7 @@ body {
     --u: min(0.96vw, 0.8vh);
   }
   .side,
-  .letters,
-  .arrows span:not(.duck) {
+  .letters {
     display: none;
   }
   .screen {
@@ -348,10 +347,11 @@ body {
     font-size: calc(3 * var(--u));
   }
   .arrows {
-    grid-template-columns: calc(24 * var(--u));
+    grid-template-columns: repeat(3, calc(11 * var(--u)));
   }
-  .arrows .duck {
+  .arrows span {
     width: 100%;
+    height: calc(9 * var(--u));
   }
   .legend {
     font-size: calc(2.2 * var(--u));

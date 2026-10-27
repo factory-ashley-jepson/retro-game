@@ -36,7 +36,7 @@ Tell the user, in four short lines:
 - Where the file is, and that it plays in any browser, even offline.
 - How to share it: email it, AirDrop it, or drop it in a Slack DM. The other person just opens it.
 - To put it online with a link later, they can ask Droid: "Put my game online with GitHub Pages."
-- What's next: "Pick a stretch goal from your spec and go around the loop again: /build-game, /playtest, /ship-game."
+- What's next: if any Definition of done item still fails, suggest fixing it with /build-game and shipping again. Otherwise: "Pick a stretch goal from your spec and go around the loop again: /build-game, /playtest, /ship-game."
 
 ## Rules
 

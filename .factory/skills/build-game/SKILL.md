@@ -29,7 +29,7 @@ Build in this order unless the spec says otherwise:
 2. A title screen with the name and "PRESS SPACE TO START".
 3. The hero, drawn as a sprite in `sprites.js` (about 12 to 20 pixels tall), moving with the spec's controls.
 4. The core loop: the things to jump, dodge, catch, or fly through.
-5. Score, game over, and play again. Save the high score with `save` and `load`.
+5. Score, game over, and play again. If the spec has a high score, save it with `save` and `load`.
 6. Sounds with `beep`, and the colors from the spec.
 
 Keep `state` (`"title"`, `"playing"`, or `"over"`), `score`, and the hero in top-level variables.
