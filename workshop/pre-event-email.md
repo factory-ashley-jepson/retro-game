@@ -4,14 +4,12 @@
 
 Hi there,
 
-We can't wait to see you tonight at 7 PM. In the hands-on workshop, you'll build Scout: your own research agent that watches the companies, people, and opportunities you care about, checks every source, and tells you why each item matters to you. You'll leave with it running on a schedule.
+We can't wait to see you tonight at 7 PM. In the hands-on workshop, you'll build your own retro arcade game, even if you've never written a line of code. You'll plan it, build it, test it, and leave with a game you can send to anyone.
 
 To get more time building, do this before you arrive (about 5 minutes):
 
 1. Download the Factory app and sign in: https://factory-ashley-jepson.github.io/morning-brief/
-2. Think of 2 to 5 things you'd like to keep up with, and why. For example: "competitors in my market, because we're fundraising," or "AI fellowships and speaking calls, because I want to grow my profile."
-
-There's nothing to connect. Scout reads only the public web.
+2. Think about what your game could be. The best ones are personal: your job, your startup, your pet, your city. An AI agent jumping over emails? A founder dodging bad term sheets? It's up to you.
 
 Bring your laptop and charger. Costumes welcome.
 

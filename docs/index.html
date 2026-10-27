@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Build your own Scout · Women in AI workshop</title>
-<meta name="description" content="Setup for the Women in AI hands-on workshop: build a personal research agent with Factory." />
+<title>Build your own retro game · Women in AI workshop</title>
+<meta name="description" content="Setup for the Women in AI hands-on workshop: build your own retro game with Factory." />
 <link rel="stylesheet" href="./assets/brand-fonts.css" />
 <style>
   :root {
@@ -114,6 +114,8 @@
 
   .callout { margin-top: 18px; padding: 16px 18px; border-left: 3px solid var(--orange); background: var(--orange-soft); border-radius: 0 10px 10px 0; color: #eee6e1; }
 
+  .hero-img { display: block; width: min(560px, 100%); margin: 32px auto 0; border-radius: 14px; }
+
   footer { margin-top: 64px; text-align: center; color: var(--muted); font-size: 14px; }
   footer a { color: var(--muted); }
 </style>
@@ -129,8 +131,9 @@
   </div>
 
   <p class="eyebrow"><span class="dot"></span>Women in AI &middot; Hands-on workshop</p>
-  <h1>Build your own Scout</h1>
-  <p class="lead">In 30 minutes, you'll build a research agent that watches the companies, people, and opportunities you care about, checks every source, and tells you why each item matters to you. No sign-ins needed.</p>
+  <h1>Build your own retro game</h1>
+  <p class="lead">You get an old-school computer that's switched on, with nothing inside. In 30 minutes, you'll describe a game, and Droid will plan it, build it, test it, and pack it into one file you can send to anyone. No coding experience needed.</p>
+  <img class="hero-img" src="./assets/game-shell.png" alt="An empty retro computer whose screen says READY." />
   <p class="laptop-note">Open this page on your laptop: <strong id="short-url">factory-ashley-jepson.github.io/morning-brief</strong></p>
 
   <h2>Get set up <span class="time">5 minutes</span></h2>
@@ -154,11 +157,10 @@
       <div id="promo-code" class="code-pill" hidden></div>
       <p class="hint" id="redeem-hint"></p>
     </li>
-
     <li>
       <h3>Install the workshop kit</h3>
-      <p>Start a new session in the Factory app, paste this in, and approve the steps Droid asks about.</p>
-      <div class="prompt" id="install-prompt">Install the Scout workshop kit for me. Download https://github.com/factory-ashley-jepson/morning-brief/archive/refs/heads/main.zip to a temporary folder and unzip it. Copy the four skill folders inside morning-brief-main/.factory/skills (scout-setup, scout, scout-check, scout-schedule) into my personal skills folder: ~/.factory/skills on Mac, or %USERPROFILE%\.factory\skills on Windows. Create that folder if it's missing, and don't change anything else. When you're done, tell me to start a new session and type /scout-setup.</div>
+      <p>Start a new session in the Factory app, paste this in, and approve the steps Droid asks about. You'll see your empty computer when it's done.</p>
+      <div class="prompt" id="install-prompt">Install the retro game workshop kit for me. Download https://github.com/factory-ashley-jepson/morning-brief/archive/refs/heads/main.zip to a temporary folder and unzip it. Copy the game folder inside morning-brief-main to a new folder named my-game in my home folder: ~/my-game on Mac, or %USERPROFILE%\my-game on Windows. If my-game already exists, ask me before changing it. Then copy the four skill folders inside morning-brief-main/.factory/skills (plan-game, build-game, playtest, ship-game) into my personal skills folder: ~/.factory/skills on Mac, or %USERPROFILE%\.factory\skills on Windows. Create any folders that are missing, and don't change anything else. Open my-game/index.html in my browser so I can see the empty computer, then tell me to start a new session and type /plan-game.</div>
       <div class="buttons">
         <button class="btn primary" id="copy-btn" type="button">Copy prompt</button>
       </div>
@@ -170,45 +172,40 @@
   <table>
     <thead><tr><th>Step</th><th>Type</th><th>What happens</th></tr></thead>
     <tbody>
-      <tr><td class="step">1. Plan</td><td><code>/scout-setup</code></td><td>Droid asks four quick questions, then what you want to watch and why you care. Your answers become Scout's watchlist.</td></tr>
-      <tr><td class="step">2. Build</td><td><code>/scout</code></td><td>Droid searches the web, opens every source to verify it, and writes your first digest.</td></tr>
-      <tr><td class="step">3. Test</td><td><code>/scout-check</code></td><td>Droid reopens every link, runs a 9-point checklist, and fixes what failed.</td></tr>
-      <tr><td class="step">4. Ship</td><td><code>/scout-schedule</code></td><td>Droid turns it into an automation that delivers your digest on your schedule: in the Factory app, by email, or as a Slack DM.</td></tr>
+      <tr><td class="step">1. Plan</td><td><code>/plan-game</code></td><td>Droid asks what kind of game, who the hero is, how you win, and the vibe. You name it, and the name goes on the computer's badge. Your answers become the plan.</td></tr>
+      <tr><td class="step">2. Build</td><td><code>/build-game</code></td><td>Droid builds the plan one piece at a time and shows you the game after each piece.</td></tr>
+      <tr><td class="step">3. Test</td><td><code>/playtest</code></td><td>Droid plays your game and checks every item in the plan, with pass or fail and proof.</td></tr>
+      <tr><td class="step">4. Ship</td><td><code>/ship-game</code></td><td>Droid packs your game into one file you can email, AirDrop, or Slack to anyone.</td></tr>
     </tbody>
   </table>
-  <div class="callout">Not sure what to watch? Pick an example in step 1: <strong>Founder</strong>, <strong>Investor</strong>, <strong>Career and opportunities</strong>, <strong>Product leader</strong>, or <strong>Women in AI opportunities</strong>. Then make it yours.</div>
+  <div class="callout">No idea yet? Try <strong>Inbox Zero</strong> (an AI agent jumps over emails), <strong>Term Sheet Dodge</strong> (dodge the bad ones, catch the good ones), or <strong>Star Cat</strong> (a cat collecting stars in space). Or invent your own.</div>
 
   <h2>Stuck?</h2>
   <details>
-    <summary>/scout-setup doesn't show up when I type it</summary>
-    <p>Start a new session so Droid picks up the new skills. You can also just type "set up Scout".</p>
+    <summary>/plan-game doesn't show up when I type it</summary>
+    <p>Start a new session so Droid picks up the new skills. You can also just type "plan my game".</p>
   </details>
   <details>
-    <summary>My digest is short, or a beat is "Quiet"</summary>
-    <p>That means Scout checked and found nothing new it could verify. Ask Droid to widen the window ("look at the last 30 days") or make the beat broader.</p>
+    <summary>The keys don't do anything</summary>
+    <p>Click the game screen first, so the browser sends your keys to the game. If it still shows the old version, ask Droid to refresh it.</p>
   </details>
   <details>
-    <summary>Email or Slack won't connect</summary>
-    <p>Your company may require admin approval for work accounts. Choose Factory app delivery tonight, or use a personal email. You can switch later by asking Droid to edit your Scout automation.</p>
+    <summary>Something broke</summary>
+    <p>Tell Droid what you see, in plain words: "the cat falls off the screen" or "the screen is black". It will fix it. If it can't, ask it to undo the last change.</p>
   </details>
   <details>
     <summary>The kit download failed</summary>
-    <p>Ask Droid to try again. If your network blocks downloads, ask Droid to clone https://github.com/factory-ashley-jepson/morning-brief instead and copy the same four folders.</p>
-  </details>
-  <details>
-    <summary>What can Scout see?</summary>
-    <p>Only the public web. It doesn't sign in to anything. If you choose email or Slack delivery, it uses that connection only to send your digest to you.</p>
+    <p>Ask Droid to try again. If your network blocks downloads, ask Droid to clone https://github.com/factory-ashley-jepson/morning-brief instead and copy the same folders.</p>
   </details>
 
   <h2>After tonight</h2>
-  <p class="sub">Your digest keeps arriving. To change it, just tell Droid what you want:</p>
+  <p class="sub">Your game lives in the my-game folder. To keep going, open a session and tell Droid what you want:</p>
   <ul class="plain">
-    <li>"Add a beat for women-led AI seed rounds, because I'm raising next quarter."</li>
-    <li>"End every digest with one LinkedIn post idea based on the top story."</li>
-    <li>"Switch my Scout to Mondays and Thursdays, and keep it under 5 items."</li>
-    <li>"Skip press releases unless a real outlet covered the news too."</li>
+    <li>"Add a coffee power-up that makes me faster for 3 seconds."</li>
+    <li>"Add a boss that shows up at 500 points."</li>
+    <li>"Make a second level with a new background."</li>
+    <li>"Put my game online with GitHub Pages so I can share a link."</li>
   </ul>
-  <p class="sub" style="margin-top:18px">Want more? The kit also includes a <strong>morning brief</strong> that reads your email and calendar. See <code>extras/morning-brief</code> on GitHub.</p>
 
   <footer>
     <p>Women in AI &middot; Vol. 01 &middot; San Francisco &middot; October 27, 2026</p>

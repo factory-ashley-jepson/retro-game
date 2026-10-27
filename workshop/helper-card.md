@@ -1,6 +1,6 @@
 # Helper card
 
-Keep people moving. If a fix takes more than 2 minutes, start them from an example watchlist and Factory app delivery, and come back later.
+Keep people moving. If a fix takes more than 2 minutes, have them ask Droid to undo the last change, and come back later.
 
 | Symptom | Fix |
 | ------- | --- |
@@ -8,17 +8,16 @@ Keep people moving. If a fix takes more than 2 minutes, start them from an examp
 | macOS says the app can't be opened | Open System Settings, then Privacy & Security, and select Open Anyway. |
 | Sign-in loops or never returns to the app | Quit the app and reopen it. Make sure they finished sign-in in the browser tab it opened. |
 | Credits or plan error | Check that they redeemed the promo code in the account they're signed in with. |
-| Install prompt fails on download | Ask Droid to retry. If the network blocks it, ask Droid to `git clone https://github.com/factory-ashley-jepson/morning-brief` and copy the same four folders. |
-| `/scout-setup` doesn't appear | Start a new session. Or type "set up Scout". |
-| Doesn't know what to watch | Pick an example: Founder, Investor, Career and opportunities, Product leader, or Women in AI opportunities. Then ask "what do you wish you'd heard about sooner last month?" |
+| Install prompt fails on download | Ask Droid to retry. If the network blocks it, ask Droid to `git clone https://github.com/factory-ashley-jepson/morning-brief` and copy the same folders. |
+| The empty computer didn't open | Ask Droid: "open my-game/index.html in my browser." Or open the my-game folder in their home folder and double-click `index.html`. |
+| `/plan-game` doesn't appear | Start a new session. Or type "plan my game". |
+| Can't pick an idea | Suggest Star Cat (a cat collecting stars in space), or something from their job. |
 | Droid keeps asking for permission | That's expected. Tell them to approve each step and read what it's about to do. |
-| `/scout` is slow | Normal. It opens and checks every page. A first run can take a few minutes. |
-| Digest is short, or everything is "Quiet" | Their beats may be too narrow, or nothing new happened. Ask Droid: "look at the last 30 days" or "make my beats broader". |
-| Digest has an old or wrong item | Good: that's the test step. Run `/scout-check` and let it fix the item. |
-| Email or Slack won't connect | Work accounts may need admin approval. Choose Factory app delivery, or a personal email. |
-| Connected email or Slack, but Droid says it isn't connected | Start a new session. A session only picks up apps connected before it started. |
-| `/scout-schedule` says it will run on this laptop | No Droid Computer on their account. It works, but only while the Factory app is open at run time. Offer a test delivery now. |
-| Wrong day or time | Ask Droid: "change my Scout automation to Mondays at 8 AM Pacific." |
-| "What can it see?" | Only the public web. It doesn't sign in to anything. Email or Slack is used only to send the digest to them. |
+| Keys don't do anything | Click the game screen first. If it's still the old version, ask Droid to refresh it. |
+| The screen is black or the game froze | Ask Droid: "the game screen is black, please fix it." If that fails twice, "undo your last change." |
+| Game is too hard or too easy | Ask Droid in plain words: "make the meteors slower" or "give me 5 lives." |
+| `/playtest` asks them to confirm things | Expected when Droid can't play the game itself. Have them play for 30 seconds and answer. |
+| Can't find the shipped file | It's in the `share` folder inside my-game. Ask Droid: "open my share folder." |
+| "Can I keep working on it at home?" | Yes. The game is in their my-game folder. They open a session and ask Droid for the next change. |
 
 Escalate to Ashley: anything about accounts, billing, or promo codes that the steps above don't fix.
