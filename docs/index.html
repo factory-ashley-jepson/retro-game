@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Build your morning brief · Women in AI workshop</title>
-<meta name="description" content="Setup for the Women in AI hands-on workshop: build a morning brief agent with Factory." />
+<title>Build your own Scout · Women in AI workshop</title>
+<meta name="description" content="Setup for the Women in AI hands-on workshop: build a personal research agent with Factory." />
 <link rel="stylesheet" href="./assets/brand-fonts.css" />
 <style>
   :root {
@@ -129,8 +129,8 @@
   </div>
 
   <p class="eyebrow"><span class="dot"></span>Women in AI &middot; Hands-on workshop</p>
-  <h1>Build your own morning brief</h1>
-  <p class="lead">In 30 minutes, you'll build an assistant that reads your email and calendar every weekday morning and tells you what needs you: today's meetings with prep notes, emails waiting on you, and promises you made.</p>
+  <h1>Build your own Scout</h1>
+  <p class="lead">In 30 minutes, you'll build a research agent that watches the companies, people, and opportunities you care about, checks every source, and tells you why each item matters to you. No sign-ins needed.</p>
   <p class="laptop-note">Open this page on your laptop: <strong id="short-url">factory-ashley-jepson.github.io/morning-brief</strong></p>
 
   <h2>Get set up <span class="time">5 minutes</span></h2>
@@ -154,15 +154,11 @@
       <div id="promo-code" class="code-pill" hidden></div>
       <p class="hint" id="redeem-hint"></p>
     </li>
-    <li>
-      <h3>Connect your email and calendar</h3>
-      <p>In the Factory app, open <strong>Settings</strong>, then <strong>Connectors</strong>. Connect <strong>Gmail</strong> and <strong>Google Calendar</strong>, or <strong>Outlook</strong> if you use Microsoft.</p>
-      <p class="hint">Work account blocked? Your company may require admin approval. Use a personal account, or start with sample data and connect later.</p>
-    </li>
+
     <li>
       <h3>Install the workshop kit</h3>
       <p>Start a new session in the Factory app, paste this in, and approve the steps Droid asks about.</p>
-      <div class="prompt" id="install-prompt">Install the Morning Brief workshop kit for me. Download https://github.com/factory-ashley-jepson/morning-brief/archive/refs/heads/main.zip to a temporary folder and unzip it. Copy the four skill folders inside morning-brief-main/.factory/skills (brief-setup, morning-brief, brief-check, brief-schedule) into my personal skills folder: ~/.factory/skills on Mac, or %USERPROFILE%\.factory\skills on Windows. Create that folder if it's missing, and don't change anything else. When you're done, tell me to start a new session and type /brief-setup.</div>
+      <div class="prompt" id="install-prompt">Install the Scout workshop kit for me. Download https://github.com/factory-ashley-jepson/morning-brief/archive/refs/heads/main.zip to a temporary folder and unzip it. Copy the four skill folders inside morning-brief-main/.factory/skills (scout-setup, scout, scout-check, scout-schedule) into my personal skills folder: ~/.factory/skills on Mac, or %USERPROFILE%\.factory\skills on Windows. Create that folder if it's missing, and don't change anything else. When you're done, tell me to start a new session and type /scout-setup.</div>
       <div class="buttons">
         <button class="btn primary" id="copy-btn" type="button">Copy prompt</button>
       </div>
@@ -174,40 +170,45 @@
   <table>
     <thead><tr><th>Step</th><th>Type</th><th>What happens</th></tr></thead>
     <tbody>
-      <tr><td class="step">1. Plan</td><td><code>/brief-setup</code></td><td>Droid checks your connections, asks four quick questions, and writes your brief profile: what you care about, who matters most, and when it arrives.</td></tr>
-      <tr><td class="step">2. Build</td><td><code>/morning-brief</code></td><td>Droid writes your first brief from your real inbox and calendar.</td></tr>
-      <tr><td class="step">3. Test</td><td><code>/brief-check</code></td><td>Droid checks every item against its source, runs a 10-point checklist, and fixes what failed.</td></tr>
-      <tr><td class="step">4. Ship</td><td><code>/brief-schedule</code></td><td>Droid turns it into an automation that emails you the brief every weekday morning.</td></tr>
+      <tr><td class="step">1. Plan</td><td><code>/scout-setup</code></td><td>Droid asks four quick questions, then what you want to watch and why you care. Your answers become Scout's watchlist.</td></tr>
+      <tr><td class="step">2. Build</td><td><code>/scout</code></td><td>Droid searches the web, opens every source to verify it, and writes your first digest.</td></tr>
+      <tr><td class="step">3. Test</td><td><code>/scout-check</code></td><td>Droid reopens every link, runs a 9-point checklist, and fixes what failed.</td></tr>
+      <tr><td class="step">4. Ship</td><td><code>/scout-schedule</code></td><td>Droid turns it into an automation that delivers your digest on your schedule: in the Factory app, by email, or as a Slack DM.</td></tr>
     </tbody>
   </table>
-  <div class="callout">No accounts connected yet? Say <strong>"use sample data"</strong> in step 1 to build and test with a fictional inbox, then connect your own when you're ready.</div>
+  <div class="callout">Not sure what to watch? Pick an example in step 1: <strong>Founder</strong>, <strong>Investor</strong>, <strong>Career and opportunities</strong>, <strong>Product leader</strong>, or <strong>Women in AI opportunities</strong>. Then make it yours.</div>
 
   <h2>Stuck?</h2>
   <details>
-    <summary>/brief-setup doesn't show up when I type it</summary>
-    <p>Start a new session so Droid picks up the new skills. You can also just type "set up my morning brief".</p>
+    <summary>/scout-setup doesn't show up when I type it</summary>
+    <p>Start a new session so Droid picks up the new skills. You can also just type "set up Scout".</p>
   </details>
   <details>
-    <summary>Google or Microsoft says the app is blocked</summary>
-    <p>Your company controls which apps can connect to your work account. Use a personal account tonight, or use sample data and connect your work account after asking your IT team.</p>
+    <summary>My digest is short, or a beat is "Quiet"</summary>
+    <p>That means Scout checked and found nothing new it could verify. Ask Droid to widen the window ("look at the last 30 days") or make the beat broader.</p>
+  </details>
+  <details>
+    <summary>Email or Slack won't connect</summary>
+    <p>Your company may require admin approval for work accounts. Choose Factory app delivery tonight, or use a personal email. You can switch later by asking Droid to edit your Scout automation.</p>
   </details>
   <details>
     <summary>The kit download failed</summary>
     <p>Ask Droid to try again. If your network blocks downloads, ask Droid to clone https://github.com/factory-ashley-jepson/morning-brief instead and copy the same four folders.</p>
   </details>
   <details>
-    <summary>Is my email safe?</summary>
-    <p>The brief is read only. It never replies, archives, deletes, or marks anything as read. The only email it sends is your brief, to you. Disconnect any app at any time under Settings, then Connectors.</p>
+    <summary>What can Scout see?</summary>
+    <p>Only the public web. It doesn't sign in to anything. If you choose email or Slack delivery, it uses that connection only to send your digest to you.</p>
   </details>
 
   <h2>After tonight</h2>
-  <p class="sub">Your brief keeps arriving. To change it, just tell Droid what you want:</p>
+  <p class="sub">Your digest keeps arriving. To change it, just tell Droid what you want:</p>
   <ul class="plain">
-    <li>"Add my Slack DMs and mentions to my morning brief."</li>
-    <li>"Thirty minutes before each external meeting, send me a prep note."</li>
-    <li>"Every Friday at 4, send me a weekly review of what I shipped and what slipped."</li>
-    <li>"Draft replies for the emails in my brief and save them as drafts. Don't send anything."</li>
+    <li>"Add a beat for women-led AI seed rounds, because I'm raising next quarter."</li>
+    <li>"End every digest with one LinkedIn post idea based on the top story."</li>
+    <li>"Switch my Scout to Mondays and Thursdays, and keep it under 5 items."</li>
+    <li>"Skip press releases unless a real outlet covered the news too."</li>
   </ul>
+  <p class="sub" style="margin-top:18px">Want more? The kit also includes a <strong>morning brief</strong> that reads your email and calendar. See <code>extras/morning-brief</code> on GitHub.</p>
 
   <footer>
     <p>Women in AI &middot; Vol. 01 &middot; San Francisco &middot; October 27, 2026</p>

@@ -1,27 +1,26 @@
 # AGENTS.md
 
-Morning Brief is a workshop kit: four Droid skills that build a personal executive assistant brief from the user's email and calendar. Attendees install the skills into their personal skills folder, so every skill must work on its own, outside this repository.
+Scout is a workshop kit: four Droid skills that build a personal research agent from the public web. Attendees install the skills into their personal skills folder, so every skill must work on its own, outside this repository.
 
 ## Layout
 
-- `.factory/skills/brief-setup/`: Plan. Connects apps, interviews the user, writes `~/.factory/morning-brief/profile.md`.
-- `.factory/skills/morning-brief/`: Build. Writes and saves the brief. `sample/` holds the fictional profile, inbox, and calendar.
-- `.factory/skills/brief-check/`: Test. The 10-point checklist and `sample-answer-key.md`.
-- `.factory/skills/brief-schedule/`: Ship. Creates the automation from `automation-prompt.md`.
+- `.factory/skills/scout-setup/`: Plan. Interviews the user and writes `~/.factory/scout/watchlist.md`. `examples/` holds starter watchlists.
+- `.factory/skills/scout/`: Build. Searches, verifies, and saves the digest to `~/.factory/scout/digests/`, using `digest-template.md`.
+- `.factory/skills/scout-check/`: Test. The 9-point checklist and fix loop.
+- `.factory/skills/scout-schedule/`: Ship. Creates the automation from `automation-prompt.md`.
+- `extras/morning-brief/`: the stretch kit (email and calendar brief). It has its own sample data and answer key.
 - `docs/`: the GitHub Pages setup page. `workshop/`: facilitator notes.
 
 ## Rules
 
 - Attendees may not write code. Keep every message a skill asks Droid to say short and plain.
-- Keep the brief read only. Its only outbound action is one email to the user's own address, and only in a scheduled run or when the user asks.
-- `automation-prompt.md` must stay self-contained, because cloud runs can't see the skills. When you change brief logic in `morning-brief/SKILL.md`, make the same change there.
-- When you change `sample/inbox.json` or `sample/calendar.json`, update `brief-check/sample-answer-key.md` to match.
-- Sample data stays fictional and uses `.example` domains.
+- Scout reads only the public web and needs no sign-ins. Its only outbound action is delivering the digest to the user: the Factory app, their own email address, or their own Slack DM.
+- `automation-prompt.md` must stay self-contained, because cloud runs can't see the skills. When you change digest logic in `scout/SKILL.md`, make the same change there.
+- The checklist in `scout-check/SKILL.md` must match the digest shape in `scout/digest-template.md`.
 - The workshop takes 30 minutes. Favor fewer, clearer steps over more features.
 
 ## Verify
 
-- `python3 -m json.tool` passes on both sample JSON files.
-- A sample run passes all 10 checks:
-  `droid exec --auto low --cwd . "Use the morning-brief skill in sample mode, then the brief-check skill without asking questions. Print the brief and the check table."`
+- A run from an example watchlist passes all 9 checks:
+  `droid exec --auto low --cwd . "Use the scout-setup skill without asking questions: start from examples/women-in-ai.md for Test Attendee, America/Los_Angeles, Mondays 8 AM, Factory app delivery. Then run the scout skill, then the scout-check skill. Print the digest and the check table."`
 - `docs/index.html` renders with no console errors.

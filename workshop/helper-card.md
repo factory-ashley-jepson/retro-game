@@ -1,6 +1,6 @@
 # Helper card
 
-Keep people moving. If a fix takes more than 2 minutes, switch them to sample data and come back later.
+Keep people moving. If a fix takes more than 2 minutes, start them from an example watchlist and Factory app delivery, and come back later.
 
 | Symptom | Fix |
 | ------- | --- |
@@ -8,17 +8,17 @@ Keep people moving. If a fix takes more than 2 minutes, switch them to sample da
 | macOS says the app can't be opened | Open System Settings, then Privacy & Security, and select Open Anyway. |
 | Sign-in loops or never returns to the app | Quit the app and reopen it. Make sure they finished sign-in in the browser tab it opened. |
 | Credits or plan error | Check that they redeemed the promo code in the account they're signed in with. |
-| Gmail or Google Calendar says "blocked" or "admin approval required" | Company policy on a work account. Use a personal Google account, or sample data. |
-| Outlook asks for admin consent | Same as above: personal account or sample data. |
 | Install prompt fails on download | Ask Droid to retry. If the network blocks it, ask Droid to `git clone https://github.com/factory-ashley-jepson/morning-brief` and copy the same four folders. |
-| Connected Gmail or Calendar, but Droid says it isn't connected | Start a new session. A session only picks up apps connected before it started. |
-| Google sign-in finished, but the app still isn't connected | On Google's consent screen, every permission checkbox must be ticked. Connect again and tick them all. |
-| `/brief-setup` doesn't appear | Start a new session. Or type "set up my morning brief". |
+| `/scout-setup` doesn't appear | Start a new session. Or type "set up Scout". |
+| Doesn't know what to watch | Pick an example: Founder, Investor, Career and opportunities, Product leader, or Women in AI opportunities. Then ask "what do you wish you'd heard about sooner last month?" |
 | Droid keeps asking for permission | That's expected. Tell them to approve each step and read what it's about to do. |
-| Brief is empty or very short | Their inbox may be quiet. Ask Droid to widen the window: "look at the last 7 days". |
-| Brief includes something it shouldn't | Good: that's the test step. Run `/brief-check`, then tell Droid what to skip. |
-| `/brief-schedule` says it will run on this laptop | No Droid Computer on their account. It works, but only while the Factory app is open at delivery time. Offer a test send now. |
-| Wrong delivery time | Ask Droid: "change my morning brief automation to 8 AM Pacific." |
-| "Is this safe?" | It's read only. The only thing it sends is the brief, to them. Disconnect under Settings, then Connectors. |
+| `/scout` is slow | Normal. It opens and checks every page. A first run can take a few minutes. |
+| Digest is short, or everything is "Quiet" | Their beats may be too narrow, or nothing new happened. Ask Droid: "look at the last 30 days" or "make my beats broader". |
+| Digest has an old or wrong item | Good: that's the test step. Run `/scout-check` and let it fix the item. |
+| Email or Slack won't connect | Work accounts may need admin approval. Choose Factory app delivery, or a personal email. |
+| Connected email or Slack, but Droid says it isn't connected | Start a new session. A session only picks up apps connected before it started. |
+| `/scout-schedule` says it will run on this laptop | No Droid Computer on their account. It works, but only while the Factory app is open at run time. Offer a test delivery now. |
+| Wrong day or time | Ask Droid: "change my Scout automation to Mondays at 8 AM Pacific." |
+| "What can it see?" | Only the public web. It doesn't sign in to anything. Email or Slack is used only to send the digest to them. |
 
 Escalate to Ashley: anything about accounts, billing, or promo codes that the steps above don't fix.
