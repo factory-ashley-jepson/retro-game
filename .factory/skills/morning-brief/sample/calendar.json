@@ -1,0 +1,62 @@
+{
+  "note": "Fictional sample calendar for the Morning Brief workshop.",
+  "calendar": "jordan@fernwood.example",
+  "date": "2026-10-28",
+  "timeZone": "America/Los_Angeles",
+  "events": [
+    {
+      "id": "e1",
+      "title": "Product standup",
+      "start": "2026-10-28T09:00:00-07:00",
+      "end": "2026-10-28T09:15:00-07:00",
+      "recurring": true,
+      "myResponse": "accepted",
+      "attendees": ["jordan@fernwood.example", "sam@fernwood.example", "marcus@fernwood.example", "lee.w@fernwood.example", "tara@fernwood.example", "omar@fernwood.example", "ivy@fernwood.example", "ben@fernwood.example"]
+    },
+    {
+      "id": "e2",
+      "title": "Priya / Jordan 1:1",
+      "start": "2026-10-28T10:00:00-07:00",
+      "end": "2026-10-28T10:30:00-07:00",
+      "recurring": true,
+      "myResponse": "accepted",
+      "attendees": ["jordan@fernwood.example", "priya@fernwood.example"]
+    },
+    {
+      "id": "e6",
+      "title": "Lunch and learn: AI safety basics",
+      "start": "2026-10-28T12:00:00-07:00",
+      "end": "2026-10-28T13:00:00-07:00",
+      "recurring": false,
+      "myResponse": "declined",
+      "attendees": ["all-hands@fernwood.example"]
+    },
+    {
+      "id": "e3",
+      "title": "Brightline onboarding check-in",
+      "start": "2026-10-28T14:00:00-07:00",
+      "end": "2026-10-28T14:45:00-07:00",
+      "recurring": false,
+      "myResponse": "accepted",
+      "attendees": ["jordan@fernwood.example", "marcus@fernwood.example", "rachel.gomez@brightline.example", "it-team@brightline.example"]
+    },
+    {
+      "id": "e4",
+      "title": "Final round: Alex Kim (Product Manager)",
+      "start": "2026-10-28T16:00:00-07:00",
+      "end": "2026-10-28T17:00:00-07:00",
+      "recurring": false,
+      "myResponse": "accepted",
+      "attendees": ["jordan@fernwood.example", "alex.kim@mail.example", "tara@fernwood.example", "omar@fernwood.example"]
+    },
+    {
+      "id": "e5",
+      "title": "Team dinner at Tartine",
+      "start": "2026-10-28T18:30:00-07:00",
+      "end": "2026-10-28T20:30:00-07:00",
+      "recurring": false,
+      "myResponse": "accepted",
+      "attendees": ["product-team@fernwood.example"]
+    }
+  ]
+}
