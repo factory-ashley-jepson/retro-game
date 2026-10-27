@@ -13,7 +13,7 @@ Read the newest file in `~/.factory/scout/digests/`, the watchlist at `~/.factor
 
 ## 2. Run every check
 
-Open every source link again with FetchUrl, or another page-reading tool if FetchUrl isn't available. Judge the digest against what the pages say, not against what seems plausible.
+Open every source link again with FetchUrl. If FetchUrl isn't available or won't open it, download the page in the shell: `curl -sL --max-time 20 -A "Mozilla/5.0" "<url>"` (`curl.exe` on Windows). Judge the digest against what the pages say, not against what seems plausible.
 
 | # | Check | How to test it |
 | - | ----- | -------------- |
@@ -24,10 +24,10 @@ Open every source link again with FetchUrl, or another page-reading tool if Fetc
 | 5 | **Credible** | Each source is a primary source or an established outlet, not a content farm or a repost of an original that exists. |
 | 6 | **Relevant** | Each item fits its beat's "Watching" and "Signals", and nothing on a skip list appears. |
 | 7 | **Why it matters** | Every "Why it matters" line ties to that beat's "Why I care" line, specifically. |
-| 8 | **No repeats** | No link was in the seen list before this run, and no story appears twice. |
+| 8 | **No repeats** | No link is in the seen list with a date earlier than this digest's date (entries dated today came from this run), and no story appears twice. |
 | 9 | **Honest coverage** | Every beat either has items or appears under Quiet, and the coverage numbers look right for the work done. |
 
-If the watchlist has a "My section", also confirm it uses only items from this digest. Note the result, but don't count it as a tenth check.
+If the watchlist has a "My section", also confirm everything in it is verified, from this digest or a source it links. Note the result, but don't count it as a tenth check.
 
 ## 3. Report
 

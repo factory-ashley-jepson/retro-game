@@ -17,7 +17,7 @@ Write a digest the user can read in two minutes: only fresh, verified news about
 
 ## 1. Search each beat
 
-1. Load WebSearch and FetchUrl with ToolSearch (`select:WebSearch,FetchUrl`) if they aren't loaded. Opening the public pages your searches return is exactly what FetchUrl is for. If FetchUrl isn't available or a page won't load with it, use any other page-reading tool you have.
+1. Load WebSearch and FetchUrl with ToolSearch (`select:WebSearch,FetchUrl`) if they aren't loaded. Running /scout is the user asking you to open the public pages your searches return. If FetchUrl isn't available, its rules stop you from opening search results, or a page won't load with it, download the page in the shell instead: `curl -sL --max-time 20 -A "Mozilla/5.0" "<url>"` (`curl.exe` on Windows), and read its text.
 2. For each beat, run 2 or 3 searches that pair what it watches with its signals, for example `Acme raises`, `Acme launches`, `Acme hires VP`. Add the year or month to keep results fresh. For opportunity beats, also search for open ones, for example `call for speakers AI 2026 deadline`. If the beat lists sources to favor, also search those sites.
 3. If a beat has no good candidates yet, try 2 more searches with different wording before calling it Quiet.
 4. Collect candidates whose date looks inside the window, or open opportunities whose deadline is ahead.
@@ -47,7 +47,7 @@ Use `digest-template.md` in this folder. Rules:
 - Every item gets its source name, publish date, and link.
 - List beats with nothing new under "Quiet". Never pad a beat with old or weak items.
 - "One thing to do" is a single concrete action the news suggests, such as an email to send, a slide to update, or a person to congratulate.
-- If the watchlist has a "My section", add it, in the user's words, using only items from this digest.
+- If the watchlist has a "My section", add it, in the user's words. Build it from items in this digest. If none fits, run up to 2 extra searches for it and verify what you use the same way. If there's still nothing, say so in one line.
 - End with a coverage line: the window, searches run, pages opened, and items dropped (too old, duplicate, weak source, couldn't verify).
 - Plain language. No filler, no em dashes, no emojis.
 
