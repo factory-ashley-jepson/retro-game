@@ -9,7 +9,7 @@ Keep people moving. If a fix takes more than 2 minutes, have them ask Droid to u
 | Sign-in loops or never returns to the app | Quit the app and reopen it. Make sure they finished sign-in in the browser tab it opened. |
 | No voucher email | Check spam and the address they typed. Submitting the form again with the same email resends the same voucher. |
 | Credits or plan error | Check that they opened the claim link while signed in to the same Factory account they use in the app. |
-| Install prompt fails on download | Ask Droid to retry. If the network blocks it, ask Droid to `git clone https://github.com/factory-ashley-jepson/morning-brief` and copy the same folders. |
+| Install prompt fails on download | Ask Droid to retry. If the network blocks it, ask Droid to `git clone https://github.com/factory-ashley-jepson/retro-game` and copy the same folders. |
 | The empty computer didn't open | Ask Droid: "open my-game/index.html in my browser." Or open the my-game folder in their home folder and double-click `index.html`. |
 | `/plan-game` doesn't appear | Start a new session. Or type "plan my game". |
 | Can't pick an idea | Suggest Star Cat (a cat collecting stars in space), or something from their job. |

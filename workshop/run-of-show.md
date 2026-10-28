@@ -4,7 +4,7 @@ Goal: everyone leaves with a game they invented, tested, and packed into a file 
 
 ## Before doors open
 
-- Setup page and QR code on the screen: `docs/qr.png`, which points to https://factory-ashley-jepson.github.io/morning-brief/
+- Setup page and QR code on the screen: `docs/qr.png`, which points to https://factory-ashley-jepson.github.io/retro-game/
 - The voucher form is live (the **Get my credits** button on the setup page). Watch the voucher sheet's Status column as people claim.
 - One helper for every 10 to 12 attendees, each with `helper-card.md`.
 - A finished game ready to demo, plus the empty computer open in a second tab.
